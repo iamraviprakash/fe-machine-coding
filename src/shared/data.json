@@ -1,0 +1,26 @@
+{
+    "curriculum": [
+        {
+            "id": 1,
+            "title": "Numbers",
+            "child": [{
+                "id": "2",
+                "title": "Count to determine the number of objects in a set",
+                "child": []
+            }]
+        },
+        {
+            "id": 3,
+            "title": "Measurement",
+            "child": [{
+                "id": 4,
+                "title": "Use simple fraction names in real-live situations",
+                "child": [{
+                    "id": 5,
+                    "title":"describe observations about events and objects in real-life situations",
+                    "child": []
+                }]
+            }]
+        }
+    ]
+}
