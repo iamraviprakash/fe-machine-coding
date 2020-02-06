@@ -37,31 +37,32 @@ const ListItem = (props) => {
                 <button className="icon-button" onClick={moveCurriculum}>
                     <div className="tooltip">
                         <DragIndicatorIcon />
-                        <span class="tooltip-text">Move</span>
+                        <span className="tooltip-text">Move</span>
                     </div>
                 </button>
                 <button className="icon-button" onClick={outdentCurriculum} >
                     <div className="tooltip">
                         <ArrowBackIcon />
-                        <span class="tooltip-text">Outdent</span>
+                        <span className="tooltip-text">Outdent</span>
                     </div>
                 </button>
                 <button className="icon-button" onClick={indentCurriculum} >
                     <div className="tooltip">
                         <ArrowForwardIcon />
-                        <span class="tooltip-text">Indent</span>
+                        <span className="tooltip-text">Indent</span>
                     </div>
                 </button>
                 <button className="icon-button" onClick={deleteCurriculum} >
                     <div className="tooltip">
                         <DeleteIcon />
-                        <span class="tooltip-text">Delete</span>
+                        <span className="tooltip-text">Delete</span>
                     </div>
-                   
                 </button>
             </div>
-            <div className="col-3"></div>
-            <div className="col-9 list-content">
+            <div className="col-2">
+                <div style={{width: 200, height: 50}}></div>
+            </div>
+            <div className="col-10 list-content">
                 <div className="divider" >
                 </div>
                 <div className="list-text">

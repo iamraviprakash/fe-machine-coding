@@ -2,6 +2,30 @@
     box-sizing: border-box;
 }
 
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    background-color: steelblue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.2em;
+    border-width: 0px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-icon, .button-text {
+    display: inline;
+    margin: 5px;
+}
+
 .col-2 {
     flex-grow: 2;
 }
@@ -27,13 +51,6 @@
     align-items: stretch;
 }
 
-.header {
-    border: 0.5px solid lightgray;
-    border-left: 0px;
-    border-right: 0px;
-    padding: 10px 0 10px 0;
-}
-
 .course {
     margin: 100px 0 100px 0;
 }
@@ -42,50 +59,6 @@
     width: 100%;
     font-size: 1.5em;
     font-weight: bold;
-    color: gray;
-}
-
-.button {
-    width: 100%;
-    color: white;
-    font-weight: bold;
-    background-color: steelblue;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 1.2em;
-    border-width: 0px;
-    border-radius: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.button-icon, .button-text {
-    display: inline;
-    margin: 5px;
-}
-
-
-.icons-set {
-    align-items: center;
-    position: absolute;
-    left: 0px;
-    margin: 0 10px 0 10px;
-}
-
-
-.title {
-    font-weight: bold;
-}
-
-.subtitle {
-    font-size: 0.9em;
     color: gray;
 }
 
@@ -98,17 +71,28 @@
     background-color: rgb(245, 244, 244);
 }
 
-.list-content {
+.flex-container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
-.list-text {
-    padding: 12px 0 12px 0;
-    margin-left: 50px;
-    margin-right: 50px;
-    align-items: center;
+.header {
+    border: 0.5px solid lightgray;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 10px 0 10px 0;
 }
 
+.icon-button {
+    background: none;
+    height: 50px;
+    width: 50px;
+    border-width: 0px;
+    border-radius: 50%;
+    color: grey;
+}
 
 input {
     border-width: 0px;
@@ -125,7 +109,27 @@ input:focus, button:focus {
     color: deepskyblue;
 }
 
-.list-container > ul > ul > li input {
+.icons-set {
+    align-items: center;
+    position: absolute;
+    left: 0px;
+    margin: 0 10px 0 10px;
+}
+
+.list-container {
+    width: 100%;
+    position: relative;
+    border: 0.5px solid lightgray;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px; 
+}
+
+.list-content {
+    align-items: center;
+}
+
+/* .list-container > ul > ul > li input {
     color: deepskyblue;
     font-weight: bold;
 }
@@ -138,6 +142,44 @@ input:focus, button:focus {
 .list-container > ul > ul > ul > ul > ul > ul li input {
     color: gray;
     font-weight: lighter;
+} */
+
+.list-container >.dd-list > .dd-item >.dd-list > .dd-item > div input {
+    color: black;
+    font-weight: 600;
+}
+
+
+.list-container >.dd-list > .dd-item > .dd-list > .dd-item > .dd-list > .dd-item div input {
+    color: gray;
+    font-weight: lighter;
+}
+
+
+.list-container > .dd-list > .dd-item > div input {
+    color: deepskyblue;
+    font-weight: bold;
+}
+
+.list-text {
+    padding: 12px 0 12px 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+}
+
+.offset {
+    width: 200px;
+    height: 50px;
+}
+
+.subtitle {
+    font-size: 0.9em;
+    color: gray;
+}
+
+.title {
+    font-weight: bold;
 }
 
 ul {
@@ -146,30 +188,12 @@ ul {
     font-size: 0.95em;
 }
 
-.list-container {
-    width: 100%;
-    position: relative;
-    border: 0.5px solid lightgray;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px; 
-}
-
-.icon-button {
-    background: none;
-    height: 50px;
-    width: 50px;
-    border-width: 0px;
-    border-radius: 50%;
-    color: grey;
-}
-
 .tooltip {
     position: relative;
     display: inline-block;
-  }
+}
   
-  .tooltip .tooltip-text {
+.tooltip .tooltip-text {
     
     position: absolute;
     z-index: 1;
@@ -182,9 +206,9 @@ ul {
     bottom: 125%;
     left: 50%;
     margin-left: -30px;
-  }
+}
   
-  .tooltip .tooltip-text::after {
+.tooltip .tooltip-text::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -193,13 +217,10 @@ ul {
     border-style: solid;
     border-color: #000000 transparent transparent transparent;
     border-width: 2.5px;
-  }
+}
   
-  .tooltip:hover .tooltip-text {
+.tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
-  }
+}
 
-  a {
-      text-decoration: none;
-  }
