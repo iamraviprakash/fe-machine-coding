@@ -3,7 +3,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import DragIndicatorIcon from "@material-ui/icons/DragIndicator";
 import DeleteIcon from "@material-ui/icons/Delete";
-import "../shared/style.css";
+// import "../shared/style.css";
 
 const ListItem = (props) => {
 
@@ -23,8 +23,12 @@ const ListItem = (props) => {
         props.updateCurriculum(props.curriculumId, event.target.value)
     }
 
-    function moveCurriculum(destinationId) {
-        props.moveCurriculum(props.curriculumId, destinationId)
+    function enableDrag() {
+        props.enableDrag(props.curriculumId)
+    }
+
+    function disableDrag() {
+        props.disableDrag(props.curriculumId)
     }
 
     function handleChangeEvent(val) {
@@ -34,37 +38,24 @@ const ListItem = (props) => {
     return(
         <div className="container">
             <div className="col-2 icons-set">
-                <button className="icon-button" onClick={moveCurriculum}>
-                    <div className="tooltip">
-                        <DragIndicatorIcon />
-                        <span className="tooltip-text">Move</span>
-                    </div>
+                <button className="icon-button" onMouseDown={enableDrag}>
+                    <DragIndicatorIcon />
                 </button>
                 <button className="icon-button" onClick={outdentCurriculum} >
-                    <div className="tooltip">
-                        <ArrowBackIcon />
-                        <span className="tooltip-text">Outdent</span>
-                    </div>
+                    <ArrowBackIcon />
                 </button>
                 <button className="icon-button" onClick={indentCurriculum} >
-                    <div className="tooltip">
-                        <ArrowForwardIcon />
-                        <span className="tooltip-text">Indent</span>
-                    </div>
+                    <ArrowForwardIcon />
                 </button>
                 <button className="icon-button" onClick={deleteCurriculum} >
-                    <div className="tooltip">
-                        <DeleteIcon />
-                        <span className="tooltip-text">Delete</span>
-                    </div>
+                    <DeleteIcon />
                 </button>
             </div>
             <div className="col-2">
-                <div style={{width: 200, height: 50}}></div>
+                <div className="buffer-space"></div>
             </div>
             <div className="col-10 list-content">
-                <div className="divider" >
-                </div>
+                <div className="divider" ></div>
                 <div className="list-text">
                     <input 
                         defaultValue={props.curriculumContent} 
@@ -75,6 +66,7 @@ const ListItem = (props) => {
                 </div>
             </div>
         </div>
+        // props.curriculumContent
     );
 }
 

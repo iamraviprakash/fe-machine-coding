@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import List from "./ListComponent";
 import Header from "./HeaderComponent";
 import data from "../shared/data.json";
-import '../shared/style.css';
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import SaveAltIcon from "@material-ui/icons/SaveAlt";
 
 class Main extends Component {
 
@@ -25,6 +25,7 @@ class Main extends Component {
         this.outdentCurriculum = this.outdentCurriculum.bind(this)
 
         this.deleteCurriculumNode = this.deleteCurriculumNode.bind(this)
+        this.insertCurriculumNode = this.insertCurriculumNode.bind(this)
         this.updateCurriculumTree = this.updateCurriculumTree.bind(this)
         this.generatePath = this.generatePath.bind(this)
         this.outdentCurriculumNode = this.outdentCurriculumNode.bind(this)
@@ -116,21 +117,28 @@ class Main extends Component {
         return path;
     }
 
-    deleteCurriculumNode(id, data) {
-        if (data.hasOwnProperty("child")){
-            if(data["child"].length > 0) {
-                this.deleteCurriculumNode(id, data["child"])
-            } else
-                return;
-        } else {
-            for(var key in data) {
-                if(data[key]["id"] == id) {
-                    data.splice(key, 1)
-                    return;
-                }
-                this.deleteCurriculumNode(id, data[key])
-            }
-        }        
+    deleteCurriculumNode(path, data) {
+        var pathIndex, tempData
+        if( path.length > 1){
+            pathIndex = path.pop()
+            tempData = data[pathIndex]["child"]
+            return this.deleteCurriculumNode(path, tempData)
+        } else if ( path.length == 1) {
+            return data.splice(path[0], 1)
+        } else
+            return null;
+    }
+
+    insertCurriculumNode(path, newNode, data) {
+        var pathIndex, tempData
+        if( path.length > 1){
+            pathIndex = path.pop()
+            tempData = data[pathIndex]["child"]
+            this.insertCurriculumNode(path, newNode, tempData)
+        } else if ( path.length == 1) {
+            data.splice(path[0]+1, 0, newNode[0])
+        } else
+            return null;
     }
 
     updateCurriculumTree(id, newTitle, data) {
@@ -199,8 +207,8 @@ class Main extends Component {
 
     deleteCurriculum(id) {
         var tempCurriculumList = this.state.curriculumlist
-        
-        this.deleteCurriculumNode(id, tempCurriculumList)
+        var path = this.generatePath(id, this.state.idIndexMap, this.state.parentChildMap)
+        this.deleteCurriculumNode(path, tempCurriculumList)
 
         this.setState({
             curriculumlist: tempCurriculumList
@@ -242,8 +250,24 @@ class Main extends Component {
     }
 
 
-    moveCurriculum(sourceId, destinationId) {
-        console.log("moveCurriculum");
+    moveCurriculum(srcId, destId) {
+        // delete the node
+        // insert the node 
+        // update the mappings
+
+        var tempCurriculumList = this.state.curriculumlist
+        var srcPath = this.generatePath(srcId, this.state.idIndexMap, this.state.parentChildMap)
+        var destPath = this.generatePath(destId, this.state.idIndexMap, this.state.parentChildMap)
+
+        var deletedNode = this.deleteCurriculumNode(srcPath, tempCurriculumList)
+
+        this.insertCurriculumNode(destPath, deletedNode, tempCurriculumList)
+
+        this.setState({
+            curriculumlist: tempCurriculumList
+        })
+
+        this.updateMap()
     }
 
     render () {
@@ -268,6 +292,9 @@ class Main extends Component {
                     </button>
                     <a href={"data:text/json;charset=utf-8,"+ encodeURIComponent(JSON.stringify({"curriculum": this.state.curriculumlist}))} download="data.json">
                         <button className="button flex-container">
+                            <div className="button-icon">
+                                <SaveAltIcon /> 
+                            </div>
                             <div className="button-text">Download JSON data</div>
                         </button>
                     </a>

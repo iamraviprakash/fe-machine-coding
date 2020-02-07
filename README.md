@@ -3,13 +3,11 @@ This application is a curriculum authoring tool helps to order, re-order, edit, 
 
 ## Features
 ### Implemented
-* Row actions: Indent, outdent, and delete
-* Parent and child relation ship is maintained: If you delete parent, child will also be deleted
+* Row actions: Indent, outdent, delete, and move
+* Parent and child relation ship is maintained: If you delete or move a parent, child will also be deleted
 * The text in each row can be editable like a text box
 * Load json to create structure. Also, modified json data can be downloaded
 
-### Yet to be implemented
-* Row actions: Move the item
 
 ## How to setup
 1. `cd` to the home directory of the project
