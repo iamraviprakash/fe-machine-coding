@@ -44,11 +44,18 @@ function GridGame (element, initialSize, callback) {
     }
   }
 
-  function resetGrid() {
+  function resetGrid(isAnswerCorrect = true) {
       const grid = document.getElementById(element);
 
       while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
+      }
+
+      if(!isAnswerCorrect) {
+        grid.classList.add("shake");
+        setTimeout(() => {
+          grid.classList.remove("shake");
+        }, 800)
       }
   }
 
@@ -59,13 +66,13 @@ function GridGame (element, initialSize, callback) {
       score++;
       currentGridSize++;
       callback(score);
-      resetGrid();
+      resetGrid(true);
       generateGrid(currentGridSize);
     } else {
       score = 0;
       currentGridSize = initialSize;
       callback(score);
-      resetGrid();
+      resetGrid(false);
       generateGrid(initialSize);
     }
   }
