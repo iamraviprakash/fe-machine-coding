@@ -7,10 +7,9 @@
  * @param callback Returns selected star count to callback
  */
 function Star(el, count, callback) {
-    // write logic to create star rating utility.
     let stars = document.getElementById(el).children;
 
-    function toggleStarsTill(lastIndex) {
+    function toggleStarsTillIndex(lastIndex) {
       for(let starIndex = 0; starIndex <= lastIndex; starIndex++) {
         const star = stars[starIndex];
 
@@ -40,13 +39,13 @@ function Star(el, count, callback) {
 
       star.addEventListener("click", () => {
         resetStars();
-        toggleStarsTill(starIndex);
+        toggleStarsTillIndex(starIndex);
         callback(Number(starIndex)+1);
       });
 
       star.addEventListener("mouseenter", () => {
         resetStars();
-        toggleStarsTill(starIndex);
+        toggleStarsTillIndex(starIndex);
       });
     }
 }
