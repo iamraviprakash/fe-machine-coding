@@ -13,8 +13,8 @@
 }
 
 #grid > div {
-  width: 100px;
-  height: 100px;
+  min-width: 20px;
+  min-height: 20px;
   border: 1px solid white;
 }
 

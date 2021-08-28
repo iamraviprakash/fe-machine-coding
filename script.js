@@ -17,6 +17,7 @@ function getRandomColors(){
 function GridGame (element, initialSize, callback) {
   // state
   let score = 0;
+  let cellSize = 100;
   let currentGridSize = initialSize;
 
   function generateGrid(size) {
@@ -27,10 +28,15 @@ function GridGame (element, initialSize, callback) {
 
     const cellCount = Math.pow(size, 2);
     const oddColorIndex = Math.floor(Math.random() * cellCount)
+    const updatedCellSize = cellSize - 2*score;
+
 
     for(let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
       const cell = document.createElement("DIV");
-      
+
+      cell.style.width = `${updatedCellSize}px`;
+      cell.style.height = `${updatedCellSize}px`;
+
       if(cellIndex == oddColorIndex) {
         cell.setAttribute("data-cell-type", "ODD");
         cell.style.backgroundColor = oddColor
