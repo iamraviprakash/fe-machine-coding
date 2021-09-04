@@ -4,8 +4,7 @@ function ProgressBarLoader(element, buttonElement, timeDuration) {
   // State
   let requestsInQueue = 0;
   let progressCount = 0;
-  let fillInterval = [];
-  let isRunning = false;
+  let fillIntervalIds = [];
 
   // Initialisation
   const loader = document.getElementById(element);
@@ -50,13 +49,13 @@ function ProgressBarLoader(element, buttonElement, timeDuration) {
       loader.removeChild(loader.firstChild);
     }
 
-    window.clearTimeout(fillInterval[0]);
-    fillInterval.shift();
+    window.clearTimeout(fillIntervalIds[0]);
+    fillIntervalIds.shift();
   }
 
   const startLoader = () => {
     let intervalKey = setInterval(fillLoader, timeDuration / totalHorizontalCells);
 
-    fillInterval.push(intervalKey);
+    fillIntervalIds.push(intervalKey);
   }
 }
