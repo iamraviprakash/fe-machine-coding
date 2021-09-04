@@ -17,17 +17,19 @@ function ProgressBarLoader(element, buttonElement, timeDuration) {
     }
 
     requestsInQueue += 1;
-    e.target.innerHTML = `Run ${requestsInQueue > 1 ? requestsInQueue : ""}`;
+    updateButton();
   });
+
+  const updateButton = () => {
+     runButton.innerHTML = `Run ${requestsInQueue > 1 ? requestsInQueue : ""}`;
+  }
 
   const fillLoader = () => {
     if (progressCount > (totalHorizontalCells - 1) ){
       requestsInQueue--;
       progressCount = 0;
 
-
-      runButton.innerHTML = `Run ${requestsInQueue > 1 ? requestsInQueue : ""}`;
-
+      updateButton();
       resetLoader();
 
       if (requestsInQueue != 0) {
