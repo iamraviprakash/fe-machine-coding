@@ -50,16 +50,22 @@ function getZIndex({ endTime }) {
 
 function initializeData({ data }) {
   // Sort the data based on startTime
+  // if startTime is same then sort based on endTime
   data.sort((x, y) => {
     if (getTimeDifference({ startTime: x.startTime, endTime: y.startTime }) < 0) { return 1; }
     if (getTimeDifference({ startTime: x.startTime, endTime: y.startTime }) > 0) { return -1; }
-    return 0;
+    if (getTimeDifference({ startTime: x.endTime, endTime: y.endTime }) < 0) { return 1; }
+    if (getTimeDifference({ startTime: x.endTime, endTime: y.endTime }) > 0) { return -1; }
   });
 
   // Using prefix sum find the overlap
   for (let meetingIndex = 0; meetingIndex < data.length; meetingIndex++) {
+
+    if (meetingIndex > 0)
+      console.log({ data, startTime: data[meetingIndex].startTime, endTime: data[meetingIndex - 1].endTime, timeDifference: getTimeDifference({ startTime: data[meetingIndex - 1].endTime, endTime: data[meetingIndex].startTime }) });
+
     if (meetingIndex > 0 &&
-      getTimeDifference({ startTime: data[meetingIndex].startTime, endTime: data[meetingIndex - 1].endTime }) > 0
+      getTimeDifference({ startTime: data[meetingIndex - 1].endTime, endTime: data[meetingIndex].startTime }) < 0
     ) {
       data[meetingIndex]["overlapCount"] = data[meetingIndex - 1]["overlapCount"] + 1
     } else {
