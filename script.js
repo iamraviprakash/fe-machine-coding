@@ -24,6 +24,8 @@ function GridGame (element, initialSize, callback) {
     const {color, oddColor} = getRandomColors();
 
     const grid = document.getElementById(element);
+    const gridFragment = document.createDocumentFragment();
+    
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
     const cellCount = Math.pow(size, 2);
@@ -46,8 +48,10 @@ function GridGame (element, initialSize, callback) {
       }
 
       cell.addEventListener("click", validateInput);
-      grid.appendChild(cell)
+      gridFragment.appendChild(cell)
     }
+    
+    grid.appendChild(gridFragment)
   }
 
   function resetGrid(shakeGrid = true) {
