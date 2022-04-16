@@ -1,22 +1,24 @@
-
-
 /*
  * Creates star rating functionality
- * @param el DOM Element
+ * @param element DOM Element
  * @param count Number of stars
  * @param callback Returns selected star count to callback
  */
-function Star(el, count, callback) {
+function Star(element, count, callback) {
     let stars = [];
-
+    const starList = document.getElementById(element);
+    const starListFragment = document.createDocumentFragment();
+  
     function createStars() {
       for(let starIndex = 0; starIndex < count; starIndex++) {
         let star = document.createElement("I");
         star.classList.add("fa", "fa-star-o");
 
-        document.getElementById(el).appendChild(star);
+        starListFragment.appendChild(star);
         stars.push(star);
       }
+
+      starList.append(starListFragment)
     }
 
     function toggleStarsTillIndex(lastIndex) {
