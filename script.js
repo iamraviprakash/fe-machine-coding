@@ -2,6 +2,8 @@ const HEIGHT_PER_HOUR = 60;
 const HOURS_PER_DAY = 24;
 
 function CalendarBase({ element }) {
+  const hourRowElementsFragment = document.createDocumentFragment();
+  
   for (i = 0; i < HOURS_PER_DAY; i++) {
     const hourRowElement = document.createElement('div');
     hourRowElement.classList.add('hourRow');
@@ -17,8 +19,10 @@ function CalendarBase({ element }) {
     }
 
     hourRowElement.appendChild(hourLabelElement);
-    element.appendChild(hourRowElement);
+    hourRowElementsFragment.appendChild(hourRowElement);
   }
+
+  element.appendChild(hourRowElementsFragment);
 }
 
 function getTimeDifference({ startTime, endTime }) {
@@ -77,6 +81,8 @@ function initializeData({ data }) {
 function Meetings({ element, data }) {
   initializeData({ data });
 
+  const meetingRowsFragment = document.createDocumentFragment();
+
   data.forEach((meeting, index) => {
     const meetingRowElement = document.createElement('div');
     meetingRowElement.classList.add('meeting');
@@ -98,6 +104,8 @@ function Meetings({ element, data }) {
     meetingRowElement.appendChild(titleElement);
     meetingRowElement.appendChild(timeElement);
 
-    element.appendChild(meetingRowElement);
+    meetingRowsFragment.appendChild(meetingRowElement);
   })
+
+  element.appendChild(meetingRowsFragment)
 }
