@@ -12,6 +12,8 @@ function ChessGame(element, initialSize = 8) {
 
   function generateGrid(size) {
     const grid = document.getElementById(element);
+    const gridFragment = document.createDocumentFragment();
+    
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
     const cellCount = Math.pow(size, 2);
@@ -37,8 +39,10 @@ function ChessGame(element, initialSize = 8) {
       cell.addEventListener("click", showSuggestions);
       cell.setAttribute("data-cell-color", backgroundColor);
 
-      grid.appendChild(cell);
+      gridFragment.appendChild(cell);
     }
+
+    grid.appendChild(gridFragment);
   }
 
   function highlightACellAtPos(cellPos) {
