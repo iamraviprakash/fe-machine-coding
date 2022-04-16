@@ -5,7 +5,6 @@
  * @param callback Returns selected star count to callback
  */
 function Star(element, count, callback) {
-    let stars = [];
     const starList = document.getElementById(element);
     const starListFragment = document.createDocumentFragment();
   
@@ -13,9 +12,9 @@ function Star(element, count, callback) {
       for(let starIndex = 0; starIndex < count; starIndex++) {
         let star = document.createElement("I");
         star.classList.add("fa", "fa-star-o");
+        star.dataset.id=starIndex;
 
         starListFragment.appendChild(star);
-        stars.push(star);
       }
 
       starList.append(starListFragment)
@@ -23,7 +22,7 @@ function Star(element, count, callback) {
 
     function toggleStarsTillIndex(lastIndex) {
       for(let starIndex = 0; starIndex <= lastIndex; starIndex++) {
-        const star = stars[starIndex];
+        const star = document.querySelectorAll(`[data-id='${starIndex}']`)[0];
 
         if(star.classList.contains("fa-star-o")) {
           star.classList.toggle("fa-star-o", false);
@@ -34,8 +33,11 @@ function Star(element, count, callback) {
     }
 
     function resetStars() {
+      const stars = document.querySelectorAll('[data-id]');
+
       for(let starIndex = 0; starIndex < stars.length; starIndex++) {
-        const star = stars[starIndex];
+        const star = document.querySelectorAll(`[data-id='${starIndex}']`)[0];
+        
         if(star.classList.contains("fa-star")) {
           star.classList.toggle("fa-star", false);
         }
@@ -45,6 +47,8 @@ function Star(element, count, callback) {
     }
 
     function initStars() {
+      const stars = document.querySelectorAll('[data-id]');
+      
       for(let starIndex in Object.entries(stars)) {
         const star = stars[starIndex];
 
