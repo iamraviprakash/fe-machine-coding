@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  row-gap: 12px;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.screenContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+}
+
+.screen {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 12px;
+  border: 1px solid seagreen;
+  color: seagreen;
+  cursor: pointer;
+}
+
+.screen:hover {
+  color: white;
+  background: #316831;
+}
+
+.selectedScreen {
+  color: white;
+  background: #316831;
+}

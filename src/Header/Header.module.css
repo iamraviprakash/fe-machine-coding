@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 148px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.controlContainer {
+  display: flex;
+  column-gap: 24px; 
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: 700;
+}

@@ -1,0 +1,24 @@
+.container {
+  height: 60px;
+  width: 100%;
+  display: grid;
+  row-gap: 12px;
+  grid-template-columns: 100px auto;
+  grid-template-rows: 28px auto;
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+  background: lightgray;
+  grid-column-start: 2;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  grid-column-start: 2;
+  place-self: center;
+}

@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.booked {
+  background: lightgray;
+  color: white;
+  cursor: not-allowed;
+}
+
+.available {
+  background: white;
+  color: seagreen;
+  border: 1px solid seagreen;
+  cursor: pointer;
+}
+
+.selected {
+  background: seagreen;
+  color: white;
+  cursor: pointer;
+}
+
+.label {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
