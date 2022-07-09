@@ -7,19 +7,16 @@ const SCREENS = [
   {
     id: 1,
     label: '4DX',
-    seatCount: 30,
     seatArrangementType: 'SMALL'
   },
   {
     id: 2,
     label: '3D',
-    seatCount: 40,
     seatArrangementType: 'MEDIUM'
   },
     {
     id: 3,
     label: '2D',
-    seatCount: 50,
     seatArrangementType: 'LARGE'
   },
 ]

@@ -1,11 +1,12 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 40px 148px;
-  width: 100%;
-  position: fixed;
-  top: 0;
+  padding: 40px;
+  width: max-content;
+  gap: 80px;
+  background: #d6e0dd;
 }
 
 .controlContainer {

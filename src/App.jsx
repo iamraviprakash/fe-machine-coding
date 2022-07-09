@@ -15,15 +15,14 @@ function App() {
         onSelectScreen={setScreen}
         onSelectSeatCount={setSeatCount}
       />
-      {(screen && seatCount) 
-        && (
-          <SeatSelection
-            totalSeats={screen.seatCount}
-            seatSelectionCount={seatCount}
-            arrangementType={screen.seatArrangementType}
-          />
-        )  
-      }
+       {(screen && seatCount) 
+          && (
+            <SeatSelection
+              seatSelectionCount={seatCount}
+              arrangementType={screen.seatArrangementType}
+            />
+          )  
+        }
     </div>
   );
 }
