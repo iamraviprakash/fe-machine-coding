@@ -1,7 +1,8 @@
 ### Movie Seat Booking
 
 #### Introduction
-Inspired from bookmyshow, decided to create a seat booking tool
+Inspired from bookmyshow, decided to create a seat booking tool. [Demo Link](https://github.com/iamraviprakash/movie-seat-booking)
+
 
 #### Features
 * Select number of seats to book
