@@ -1,8 +1,6 @@
 const suggestions = ['but', 'whether', 'the', 'senpie', 'sender', 'grammatically', 'correct', 'isn’t', 'nearly', 'as', 'important', 'the', 'sentence', 'is', 'fun', 'funny','funky', 'or', 'beautiful'];
 
 function showSearchBox({ element, onSearch }) {
-  // create search box
-  // trigger onSearch on every keyup
   const searchBox = document.createElement('input');
   searchBox.type = 'search';
   searchBox.placeholder = 'Enter the keyword. Min 3 letters';
