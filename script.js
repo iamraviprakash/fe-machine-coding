@@ -1,4 +1,16 @@
-const suggestions = ['but', 'whether', 'the', 'senpie', 'sender', 'grammatically', 'correct', 'isn’t', 'nearly', 'as', 'important', 'the', 'sentence', 'is', 'fun', 'funny','funky', 'or', 'beautiful'];
+import SUGGESTIONS from "./data.js";
+
+function getSuggestionsData({ searchTerm }) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const filteredSuggestions = searchTerm
+        ? SUGGESTIONS.filter(suggestion => (suggestion.startsWith(searchTerm)))
+        : SUGGESTIONS;
+
+      resolve(filteredSuggestions)
+    }, 2000)
+  })
+}
 
 function showSearchBox({ element, onSearch }) {
   const searchBox = document.createElement('input');
@@ -22,31 +34,41 @@ function showSuggestion({ suggestion, onSelect }) {
 }
 
 function showSuggestions({ element, suggestions, onSelect }) {
-  // show the list down below the search box
   let suggestionsContainer = null;
-  if(document.getElementsByClassName('suggestionsContainer').length > 0) {
+  if (document.getElementsByClassName('suggestionsContainer').length > 0) {
+    clearSuggestions();
     suggestionsContainer = document.getElementsByClassName('suggestionsContainer')[0];
-    suggestionsContainer.innerHTML = '';
   } else {
     suggestionsContainer = document.createElement('div');
     suggestionsContainer.classList.add('suggestionsContainer');
   }
 
-  suggestions.forEach((suggestion) => {
-    const suggestionElement = showSuggestion({
-      suggestion, 
-      onSelect 
+  if (suggestions.length > 0) {
+    suggestions.forEach((suggestion) => {
+      const suggestionElement = showSuggestion({
+        suggestion,
+        onSelect
+      })
+  
+      suggestionsContainer.append(suggestionElement)
     })
+  } else {
+      const suggestionElement = showSuggestion({
+        suggestion: 'No result found',
+        onSelect: () => {}
+      })
+  
+      suggestionsContainer.append(suggestionElement)
+  }
 
-    suggestionsContainer.append(suggestionElement)
-  })
 
   element.append(suggestionsContainer);
 }
 
 function showSelectedSuggestion({ element, suggestion }) {
   let selectedSuggestionContainer = null;
-  if(document.getElementsByClassName('selectedSuggestionContainer').length > 0) {
+  
+  if (document.getElementsByClassName('selectedSuggestionContainer').length > 0) {
     selectedSuggestionContainer = document.getElementsByClassName('selectedSuggestionContainer')[0];
     selectedSuggestionContainer.innerHTML = '';
   } else {
@@ -55,44 +77,51 @@ function showSelectedSuggestion({ element, suggestion }) {
   }
 
   selectedSuggestionContainer.innerHTML = suggestion;
-  
+
   element.append(selectedSuggestionContainer);
 }
 
 
+function destroySuggestions() {
+  const suggestionsContainer = document.querySelector('.suggestionsContainer');
+  suggestionsContainer.remove();
+}
+
+function clearSuggestions() {
+  const suggestionsContainer = document.querySelector('.suggestionsContainer');
+  suggestionsContainer.innerHTML = '';
+}
+
+
 function App() {
-  let filteredSuggestions = suggestions;
-
-  const onSearch = (e) => {
-    const searchTerm = e.target.value;
-
-    filteredSuggestions = searchTerm 
-      ? suggestions.filter(suggestion => (suggestion.startsWith(searchTerm))) 
-      : suggestions;
-
-    showSuggestions({ 
-      element: searchContainer, 
-      suggestions: filteredSuggestions, 
-      onSelect 
-    });
-  }
-
-  const onSelect = (e) => {
-    const suggestionsContainer = document.getElementsByClassName('suggestionsContainer')[0];
-    suggestionsContainer.remove();
-    
-    showSelectedSuggestion({ 
-      element: rootElement, 
-      suggestion: e.target.innerHTML 
-    });
-  }
-
+  let filteredSuggestions = [];
 
   const rootElement = document.getElementById("root");
 
   const searchContainer = document.createElement('div');
   searchContainer.classList.add('searchContainer');
   rootElement.append(searchContainer);
+
+  const onSearch = async (e) => {
+    const searchTerm = e.target.value;
+
+    filteredSuggestions = await getSuggestionsData({ searchTerm });
+
+    filteredSuggestions && showSuggestions({
+      element: searchContainer,
+      suggestions: filteredSuggestions,
+      onSelect
+    });
+  }
+
+  const onSelect = (e) => {
+    destroySuggestions();
+
+    showSelectedSuggestion({
+      element: rootElement,
+      suggestion: e.target.innerHTML
+    });
+  }
 
   showSearchBox({ element: searchContainer, onSearch });
 }
