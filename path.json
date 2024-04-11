@@ -3,20 +3,20 @@
         "id": 1,
         "prevId": null,
         "nextId": 2,
-        "top": "200px",
-        "left": "200px",
-        "height": "150px",
+        "top": "0px",
+        "left": "0px",
+        "height": "50px",
         "width": "150px",
-        "message": "This is a guide message"
+        "message": "This is a title for this website"
     },
     {
         "id": 2,
         "prevId": 1,
         "nextId": null,
-        "top": "250px",
-        "left": "250px",
-        "height": "150px",
+        "top": "50px",
+        "left": "0px",
+        "height": "50px",
         "width": "150px",
-        "message": "This is a guide message 2"
+        "message": "This is a home"
     }
 ]
