@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "prevId": null,
+        "nextId": 2,
+        "top": "200px",
+        "left": "200px",
+        "height": "150px",
+        "width": "150px",
+        "message": "This is a guide message"
+    },
+    {
+        "id": 2,
+        "prevId": 1,
+        "nextId": null,
+        "top": "250px",
+        "left": "250px",
+        "height": "150px",
+        "width": "150px",
+        "message": "This is a guide message 2"
+    }
+]
