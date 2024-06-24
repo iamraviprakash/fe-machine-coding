@@ -1,0 +1,94 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 10px;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+}
+
+.left-nav {
+  background-color: orange;
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.content {
+  background-color: red;
+  display: flex;
+  flex: 1;
+}
+
+/* guide css */
+
+:root {
+  --focus-height: 150px;
+  --focus-width: 150px;
+  --focus-start-x: 200px;
+  --focus-start-y: 200px;
+}
+
+.guide-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  clip-path: polygon( 
+   0px 0px,
+   var(--focus-start-x) 0,
+   var(--focus-start-x) calc(var(--focus-start-y) + var(--focus-height)),
+   calc(var(--focus-start-x) + var(--focus-width)) calc(var(--focus-start-y) + var(--focus-height)),
+   calc(var(--focus-start-x) + var(--focus-width)) var(--focus-start-y),
+   var(--focus-start-x) var(--focus-start-y),
+   var(--focus-start-x) 0,
+   100% 0,
+   100% 100%,
+   0 100%,
+   0 0
+  );
+}
+
+.message {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  padding: 10px;
+  left: calc(var(--focus-start-x) + var(--focus-width) + 10px);
+  top: var(--focus-start-y);
+}
