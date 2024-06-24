@@ -1,0 +1,81 @@
+.snackbar__container {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 10px;
+}
+
+.snackbar {
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 50px;
+  width: 200px;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.snackbar__online {
+  color: #128494;
+  background-color: #ecfeff;
+}
+
+.snackbar__offline {
+  color: #ff7272;
+  background-color: #fde2e2;
+}
+
+.snackbar__container--up {
+  animation-name: slide-up;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+.snackbar__container--down {
+  animation-duration: 1s;
+  animation-name: slide-down;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-down {
+  0% {
+    top: -80px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: -80px;
+  }
+}
+
+@keyframes slide-down-up {
+  0% {
+    top: -80px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: -80px;
+  }
+}
+
+@keyframes slide-up-down {
+  0% {
+    top: -80px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: -80px;
+  }
+}

@@ -1,0 +1,13 @@
+.App {
+  width: 100%;
+}
+
+.form {
+  position: absolute;
+  margin-top: 100px;
+}
+
+.user-list {
+  position: absolute;
+  margin-top: 150px;
+}
