@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+}
+
+.mediumSeatsContainer {
+  grid-template-rows: repeat(4, auto);
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  position: relative;
+}
+
+.rowHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: gray;
+  position: absolute;
+  left: -80px;
+}
+

@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  row-gap: 12px;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.seatContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+}
+
+.seatCount {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  font-size: 1.2rem;
+  background: gray;
+  color: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.seatCount:hover{
+  background: #404040;
+}
+
+.selectedSeatCount {
+  background: #404040;
+}

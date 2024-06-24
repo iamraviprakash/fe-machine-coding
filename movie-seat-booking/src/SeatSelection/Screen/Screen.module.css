@@ -1,0 +1,20 @@
+.container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.screen {
+  height: 20px;
+  width: 100%;
+  background: lightgray;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  place-self: center;
+}

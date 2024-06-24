@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: max-content;
+  gap: 80px;
+  background: #d6e0dd;
+}
+
+.controlContainer {
+  display: flex;
+  column-gap: 24px; 
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: 700;
+}
