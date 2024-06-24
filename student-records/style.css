@@ -1,0 +1,23 @@
+* {
+    box-sizing: content-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.todoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+    border: 1px solid black;
+}
