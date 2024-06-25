@@ -1,0 +1,243 @@
+* {
+    /* box-sizing: border-box; */
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    background-color: steelblue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 0.8em;
+    border-width: 0px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button-icon, .button-text {
+    display: inline;
+    margin: 5px;
+}
+
+.buffer-space {
+    width: 100px;
+    height: 30px;
+}
+
+.col-2 {
+    flex-grow: 2;
+}
+
+.col-3 {
+    flex-grow: 3;
+}
+
+.col-8 {
+    flex-grow: 8;
+}
+
+.col-9 {
+    flex-grow: 9;
+}
+
+.col-10 {
+    flex-grow: 10;
+}
+
+.container {
+    display: flex;
+    align-items: stretch;
+}
+
+.course {
+    margin: 50px 0 50px 0;
+}
+
+.course-name {
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: gray;
+}
+
+.divider { 
+    float: left;
+    margin-top: 0.5px;
+    margin-bottom: 0.5px;   
+    height: 30px;
+    width: 25px;
+    background-color: rgb(245, 244, 244);
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    border: 0.5px solid lightgray;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 5px 0 5px 0;
+}
+
+.icon-button {
+    background: none;
+    height: 25px;
+    width: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-width: 0px;
+    border-radius: 50%;
+    color: grey;
+}
+
+.icon-button:hover {
+    /* background-color: rgb(241, 241, 241); */
+    color: deepskyblue;
+}
+
+.icons-set {
+    align-items: center;
+    position: absolute;
+    left: 0px;
+    margin: 5px 10px 5px 10px;
+}
+
+input {
+    border-width: 0px;
+    font-size: 1.1em;
+    width: 100%;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+
+.list-container {
+    width: 100%;
+    position: relative;
+    border: 0.5px solid lightgray;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px; 
+    padding: 5px;
+}
+
+.list-content {
+    align-items: center;
+}
+
+/* .list-container > ul > ul > li input {
+    color: deepskyblue;
+    font-weight: bold;
+}
+
+.list-container > ul > ul > ul > ul li input {
+    color: black;
+    font-weight: 600;
+}
+
+.list-container > ul > ul > ul > ul > ul > ul li input {
+    color: gray;
+    font-weight: lighter;
+} */
+
+.list-container >.dd-list > .dd-item >.dd-list > .dd-item > div input {
+    color: black;
+    font-weight: 600;
+}
+
+
+.list-container >.dd-list > .dd-item > .dd-list > .dd-item > .dd-list > .dd-item div input {
+    color: gray;
+    font-weight: lighter;
+}
+
+
+.list-container > .dd-list > .dd-item > div input {
+    color: deepskyblue;
+    font-weight: bold;
+}
+
+.list-text {
+    padding: 5px 0 5px 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+}
+
+.offset {
+    width: 200px;
+    height: 30px;
+}
+
+.subtitle {
+    font-size: 0.7em;
+    color: gray;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.title {
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+/* .tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltip-text {
+    
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+    background-color: #000000;
+    opacity: 0;
+    color: #ffffff;
+    border-radius: 2.5px;
+    padding: 5px 10px 5px 10px;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -30px;
+}
+  
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+    border-width: 2.5px;
+}
+  
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+} */
+
+ul {
+    margin: 0px;
+    padding-inline-start: 15px !important;
+    font-size: 0.85em;
+}
+
+.MuiSvgIcon-root {
+    font-size: 1.4em !important;
+}
