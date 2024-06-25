@@ -1,1 +1,1 @@
-# fe-machine-coding
+# machine-coding-projects
