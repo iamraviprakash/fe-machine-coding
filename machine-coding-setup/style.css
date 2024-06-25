@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  row-gap: 8px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.email {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.searchBar {
+  height: 40px;
+  width: 100%;
+}
+
+#userList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  padding: 12px;
+}
+
+.favourite {
+  background: lightblue;
+}
+
+.paginationContainer {
+  display: flex;
+  column-gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
