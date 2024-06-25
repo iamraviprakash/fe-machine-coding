@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>replit</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="./meeting.js">
+
+	</script>
+</head>
+
+<body>
+	<div id="calendarBase"></div>
+	<div id="meetings"></div>
+	<script src="script.js">
+	</script>
+	<script>
+		const calendarBaseElement = document.getElementById('calendarBase');
+    const meetingsElement = document.getElementById('meetings');
+    
+    new CalendarBase({element: calendarBaseElement});
+    new Meetings({element: meetingsElement, data});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+#calendarBase {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+}
+
+#meetings {
+  display: flex;
+    left: 100px;
+  position: relative;
+  flex-direction: column;
+  width: calc(100% - 100px);
+}
+
+.hourRow {
+  position: relative;
+  display: flex;
+  width: calc(100% - 100px);
+  border-bottom: 1px solid lightgray;
+  left: 100px;
+}
+
+.hourLabel {
+  white-space: nowrap;
+  position: absolute;
+  bottom: -10px;
+  right: calc(100% + 10px)
+}
+
+.meeting {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid white;
+  row-gap: 4px;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+}
